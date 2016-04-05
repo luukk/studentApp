@@ -1,0 +1,43 @@
+<HTML>
+
+<head></head>
+
+<body>
+
+  <div id="btn1">testknop 1</div>
+  <div id="btn2">testknop 2</div>
+  <div id="shuffle">shuffle</div>
+
+  <div class="container">
+    <div class="shuffleStudent"></div>
+    <div class="allStudents"></div>
+  </div>
+
+  <script id="randomStudent-template" type="text/x-handlebars-template">
+
+    <p data-id="{{id}}">De student {{firstname}} {{lastname}} is {{age}} jaar oud.</p>
+
+  </script>
+
+  <script id="allStudents-template" type="text/x-handlebars-template">
+    <table border="1">
+    {{#each this}}
+        <tr>
+          <td data-id="{{eyecolor}}">{{firstname}}</td>
+          <td data-id="{{eyecolor}}">{{lastname}}</td>
+        </tr>
+    {{/each}}
+    </table>
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+  <script src="thisExamples.js"></script>
+  <script src="util/EventDispatcher.js"></script>
+  <script src="util/HttpRequest.js"></script>
+  <script src="app/models/StudentsModel.js"></script>
+  <script src="app/views/RandomStudentView.js"></script>
+  <script src="app/views/AllStudentsView.js"></script>
+  <script src="app/app.js"></script>
+</body>
+
+</HTML>
