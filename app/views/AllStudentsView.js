@@ -13,7 +13,10 @@ app.allStudentsView = {
 
     this.model = model;
 
-    // Grab the template script from the dom
+    // Grab the template script from the dom\
+    this.leftEye = document.querySelector('.leftEye');
+    this.rightEye = document.querySelector('.rightEye');
+    this.person = document.querySelector('.person');
     var templateSrc = document.querySelector("#allStudents-template").innerHTML;
 
     this.template = Handlebars.compile(templateSrc);
@@ -35,8 +38,11 @@ app.allStudentsView = {
     // dit event object geeft je veel informatie over wat er is gebeurd
     // bijvoorbeeld op wie er is geklikt
     var clickedRow = e.target,
-      eyecolor = clickedRow.dataset.id; // we gebruiken .dataset.id om het attributt data-id uit te lezen
-
+      personData = clickedRow.dataset.id; // we gebruiken .dataset.id om het attributt data-id uit te lezen
+      //length = clickedRow.dataset.length;
+      console.log(eyecolor);
+      this.leftEye.style.backgroundColor = eyecolor;
+      this.rightEye.style.backgroundColor = eyecolor;
     // we weten nu op wie er is geklikt
     console.log(eyecolor);
   },

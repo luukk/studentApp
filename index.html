@@ -1,6 +1,8 @@
 <HTML>
 
-<head></head>
+<head>
+  <link href="css/personStyle.css" type="text/css" rel="stylesheet">
+</head>
 
 <body>
 
@@ -23,13 +25,16 @@
     <table border="1">
     {{#each this}}
         <tr>
-          <td data-id="{{eyecolor}}">{{firstname}}</td>
-          <td data-id="{{eyecolor}}">{{lastname}}</td>
+          <td data-id="{{eyecolor}},{{height}}">{{firstname}}</td>
+          <td data-id="{{eyecolor}},{{height}}">{{lastname}}</td>
         </tr>
     {{/each}}
     </table>
   </script>
-
+<div class="person">
+  <div class="leftEye"></div>
+  <div class="rightEye"></div>
+</div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
   <script src="thisExamples.js"></script>
   <script src="util/EventDispatcher.js"></script>
