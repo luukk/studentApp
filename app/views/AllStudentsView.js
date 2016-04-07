@@ -16,7 +16,7 @@ app.allStudentsView = {
     // Grab the template script from the dom\
     this.leftEye = document.querySelector('.leftEye');
     this.rightEye = document.querySelector('.rightEye');
-    this.person = document.querySelector('.person');
+    this.body = document.querySelector('.body');
     var templateSrc = document.querySelector("#allStudents-template").innerHTML;
 
     this.template = Handlebars.compile(templateSrc);
@@ -39,12 +39,13 @@ app.allStudentsView = {
     // bijvoorbeeld op wie er is geklikt
     var clickedRow = e.target,
       personData = clickedRow.dataset.id; // we gebruiken .dataset.id om het attributt data-id uit te lezen
-      //length = clickedRow.dataset.length;
-      console.log(eyecolor);
+      var eyecolor = personData.substr(0,personData.indexOf(','));
+      var height =  personData.substr(personData.lastIndexOf(',')+1,personData.length);
+
       this.leftEye.style.backgroundColor = eyecolor;
       this.rightEye.style.backgroundColor = eyecolor;
+      this.body.style.height = height;
     // we weten nu op wie er is geklikt
-    console.log(eyecolor);
   },
 
   allStudents: function(e) {
