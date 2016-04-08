@@ -14,7 +14,6 @@ eventDispatcher = {
     subscribers.push(callback);
   },
 
-  // parameters kunnen we in een andere les nog uitbreiden met data (om variabelen mee te geven) & context (waar verwijst 'this' naar)
   dispatch: function(eventName) {
 
     var subscribers = this.eventSubscriptions[eventName],

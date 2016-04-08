@@ -1,45 +1,42 @@
 var app = app || {};
 
-// dit object bevat de functies om studenten op te halen, etc.
-// vanuit dit bestand ga je ook je PHP API lastig vallen met de vraag "mag ik alle studenten"
-
-// wat doet deze regel code?
 app.studentsModel = Object.create(eventDispatcher);
 
 app.studentsModel.loadStudents = function() {
-  // dit is de functie die de studenten ophaalt bij je PHP pagina
-  // als de studenten zijn geladen, dan dispatcht hij een event
-  // je view (bijvoorbeeld de randomStudentView) moet luisteren naar dit event
 
-  var self = this,
-      httpRequest = new HttpRequest();
+    var self = this,
+        httpRequest = new HttpRequest();
 
-  httpRequest.load("api/index.php", function(data){
-      self.students = data;
-      self.dispatch("CHANGE");
-  });
-  // this.dispatch("CHANGE"); // deze 'dispatch' pas uitvoeren als je studenten JSON is geladen
-
-
-  // Transform the HTML template into a 'real' template
-
+    httpRequest.load("api/index.php", function(data) {
+        self.students = data;
+        self.dispatch("CHANGE");
+    });
 };
 
 app.studentsModel.randomStudent = function() {
-  var random = Math.floor(Math.random() * this.students.length);
-  return this.students[random];
+    var random = Math.floor(Math.random() * this.students.length);
+    return this.students[random];
 };
 
-app.studentsModel.allStudents = function(){
-  return this.students;
-};
+app.studentsModel.sortStudents = function(key, bool) {
+    var copy = this.students.concat();
 
+    if (bool == true) {
+        direction = 1;
+    } else {
+        direction = -1;
+    }
+    copy.sort(function(a, b) {
+        if (a[key] < b[key]) {
+            return direction;
+        } else {
+            return -direction;
+        }
+    });
 
-
-/*
-app.studentsModel.getAll = function(){
-  return this.students;
+    return copy.slice(0, 3);
 }
-*/
 
-// welke functies heeft je model nog meer nodig? Maak ze hieronder aan.
+app.studentsModel.allStudents = function() {
+    return this.students;
+};

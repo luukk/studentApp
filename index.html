@@ -1,63 +1,98 @@
 <HTML>
 
 <head>
-  <link href="css/personStyle.css" type="text/css" rel="stylesheet">
+    <title>Leerlingen App: Luuk & Jesse</title>
+    <link rel="stylesheet" href="app/css/main.css">
+    <link rel="stylesheet" href="app/css/standard.css">
 </head>
 
 <body>
 
-  <div id="btn1">testknop 1</div>
-  <div id="btn2">testknop 2</div>
-  <div id="shuffle">shuffle</div>
-
-  <div class="container">
-    <div class="shuffleStudent"></div>
-    <div class="allStudents"></div>
-  </div>
-
-  <script id="randomStudent-template" type="text/x-handlebars-template">
-
-    <p data-id="{{id}}">De student {{firstname}} {{lastname}} is {{age}} jaar oud.</p>
-
-  </script>
-
-  <script id="allStudents-template" type="text/x-handlebars-template">
-    <table border="1">
-    {{#each this}}
-        <tr>
-          <td data-id="{{eyecolor}},{{height}}">{{firstname}}</td>
-          <td data-id="{{eyecolor}},{{height}}">{{lastname}}</td>
-        </tr>
-    {{/each}}
-    </table>
-  </script>
-<div class="person">
-  <div class="head">
-    <div class="eyes">
-      <div class="leftEye">
-        <div class="pupilLeft"></div>
-      </div>
-      <div class="rightEye">
-        <div class="pupilRight"></div>
-      </div>
+    <div class="container">
+        <h1>MD2 leerlingen app</h1>
+        <div id="shuffle-container">
+            <div class="shuffle_link">
+                <p>Random leerling: </p>
+                <div id="shuffle">(shuffle)</div>
+            </div>
+        </div>
+        <div id="shuffle-student-info">
+            <img src="app/img/placeholder.png" alt="Placeholder Image">
+            <div class="shuffleStudent"></div>
+        </div>
+        <hr>
+        <div class="sort-students-info">
+            Top 3:
+            <select id="sortStudents">
+                <option value="height:false">Kleinste leerlingen</option>
+                <option value="height:true">Langste leerlingen</option>
+                <option value="age:false">Jongste leerlingen</option>
+                <option value="age:true">Oudste leerlingen</option>
+            </select>
+            <div class="topStudents"></div>
+        </div>
+        <hr>
+        <div class="allStudents"></div>
+        <div class="person">
+            <div class="head">
+                <div class="eyes">
+                    <div class="leftEye">
+                        <div class="pupilLeft"></div>
+                    </div>
+                    <div class="rightEye">
+                        <div class="pupilRight"></div>
+                    </div>
+                </div>
+                <div class="mouth"></div>
+            </div>
+            <div class="left-hand"></div>
+            <div class="right-hand"></div>
+            <div class="body"></div>
+            <div class="left-leg"></div>
+            <div class="right-leg"></div>
+        </div>
     </div>
-    <div class="mouth"></div>
-  </div>
-  <div class="left-hand"></div>
-  <div class="right-hand"></div>
-  <div class="body"></div>
-  <div class="left-leg"></div>
-  <div class="right-leg"></div>
-</div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-  <script src="thisExamples.js"></script>
-  <script src="util/EventDispatcher.js"></script>
-  <script src="util/HttpRequest.js"></script>
-  <script src="app/views/moveEyes.js"></script>
-  <script src="app/models/StudentsModel.js"></script>
-  <script src="app/views/RandomStudentView.js"></script>
-  <script src="app/views/AllStudentsView.js"></script>
-  <script src="app/app.js"></script>
+
+    <script id="randomStudent-template" type="text/x-handlebars-template">
+        <h3>{{firstname}} {{lastname}}</h3>
+        <p data-id="{{id}}">De student {{firstname}} is een leerling van {{height}} cm. Hij zit in klas {{class}} en behoort tot het geslacht {{gender}}. Zijn ogen zijn {{eyecolor}}.</p>
+    </script>
+
+    <script id="sortStudent-template" type="text/x-handlebars-template">
+        <table border="1">
+            {{#each this}}
+            <ol>
+                <tr>
+                    <td data-id="{{id}}">{{firstname}}</td>
+                    <td data-id="{{id}}">{{lastname}}</td>
+                </tr>
+                {{/each}}
+        </table>
+    </script>
+
+    <script id="allStudents-template" type="text/x-handlebars-template">
+        <table border="1">
+            <tr>
+                <td>Voornaam</td>
+                <td>Achternaam</td>
+            </tr>
+            {{#each this}}
+            <tr>
+                <td data-id="{{eyecolor}},{{height}}">{{firstname}}</td>
+                <td data-id="{{eyecolor}},{{height}}">{{lastname}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <script src="util/EventDispatcher.js"></script>
+    <script src="util/HttpRequest.js"></script>
+    <script src="app/models/StudentsModel.js"></script>
+    <script src="app/views/RandomStudent.js"></script>
+    <script src="app/views/SortStudent.js"></script>
+    <script src="app/views/AllStudents.js"></script>
+    <script src="app/views/MoveEyes.js"></script>
+    <script src="app/app.js"></script>
 </body>
 
 </HTML>

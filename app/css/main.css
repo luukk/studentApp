@@ -1,0 +1,56 @@
+@import url(helpers/_normalize.css);
+@import url(components/_movingEyes.css);
+
+.container {
+    margin: 0 2em;
+    width: 700px;
+}
+.container .shuffle_link {
+    width: 300px;
+}
+.container .shuffle_link p {
+    margin: 0;
+    padding-right: 4px;
+    font-weight: bold;
+    float: left;
+}
+.container .shuffle_link #shuffle {
+    float: left;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.container #shuffle-container {
+    overflow: auto;
+}
+.container #shuffle-student-info {
+    overflow: auto;
+    margin: 1em 0;
+}
+.container #shuffle-student-info img {
+    width: 10em;
+    float: left;
+    padding-right: 1em;
+}
+.container #shuffle-student-info .shuffleStudent {
+    width: 400px;
+    float: left;
+}
+.container .allStudents table, .container .topStudents table {
+    font-weight: 100;
+}
+.container .allStudents table td, .container .topStudents table td {
+    padding: 0 4px;
+}
+.container .allStudents {
+    float: left;
+}
+.container .allStudents table {
+    font-weight: 100;
+}
+.container .allStudents table tr:first-child {
+    font-weight: bold;
+}
+.container .person {
+    float: left;
+    margin-left: 2em;
+}

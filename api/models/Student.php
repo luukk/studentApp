@@ -1,6 +1,4 @@
 <?php
-//require '../includes/config.php';
-//require '../includes/database.php';
 
 $result =  $mysqli->query('SELECT * FROM student');
 $array = array();

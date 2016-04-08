@@ -1,0 +1,56 @@
+.container {
+    margin: 0 2em;
+    width: 700px;
+    .shuffle_link {
+        width: 300px;
+        p {
+            margin: 0;
+            padding-right: 4px;
+            font-weight: bold;
+            float: left;
+        }
+        #shuffle {
+            float: left;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+    #shuffle-container {
+        overflow: auto;
+    }
+    #shuffle-student-info {
+        overflow: auto;
+        margin: 1em 0;
+        img {
+            width: 10em;
+            float: left;
+            padding-right: 1em;
+        }
+        .shuffleStudent {
+            width: 400px;
+            float: left;
+        }
+    }
+    .allStudents,
+    .topStudents {
+        table {
+            font-weight: 100;
+            td {
+                padding: 0 4px;
+            }
+        }
+    }
+    .allStudents {
+        float: left;
+        table {
+            font-weight: 100;
+            tr:first-child {
+                font-weight: bold;
+            }
+        }
+    }
+    .person {
+        float: left;
+        margin-left: 2em;
+    }
+}

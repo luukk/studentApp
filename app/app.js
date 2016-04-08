@@ -2,16 +2,12 @@
 
 var app = app || {};
 
-function initApp()
-{
+function initApp() {
+    app.randomStudentsView.init(app.studentsModel);
+    app.allStudentsView.init(app.studentsModel);
+    app.sortStudentsView.init(app.studentsModel);
 
-	// dit is het startpunt van je applicatie. Hier geef je aan de view(s) door welke models ze moeten gebruiken
-	// naar welk model ze moeten luisteren kun je bijvoorbeeld doorgeven in de init() functie. Dit mogen jullie zelf bouwen
-	app.randomStudentsView.init(app.studentsModel);
-	app.allStudentsView.init(app.studentsModel);
-
-	app.studentsModel.loadStudents();
+    app.studentsModel.loadStudents();
 }
 
-// als de pagina geladen is, dan starten we de app
 window.addEventListener("load", initApp);
